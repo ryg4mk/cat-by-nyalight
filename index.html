@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#201b31">
+  <meta name="description" content="猫から隠れてチーズを3個食べ、巣に逃げ込もう。スマホ向けステルス脱出ゲーム。">
+  <title>キャットバイにゃーライト | ONE TAKE GAME #009</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main id="game" aria-label="キャットバイにゃーライト">
+    <canvas id="scene" aria-label="屋敷のゲーム画面。キーボードまたは左スティックで移動" tabindex="0"></canvas>
+    <div id="vignette" aria-hidden="true"></div>
+    <div class="hud" id="hud" hidden>
+      <div class="hud-top">
+        <div class="cheese-count"><span class="cheese-mark">◆</span><span id="count">チーズ 0 / 3</span></div>
+        <button id="sound" class="sound" type="button" aria-label="効果音をオフにする">♪ ON</button>
+      </div>
+      <div class="notice" id="notice" aria-live="polite">家具の陰に隠れよう</div>
+      <div class="stamina-box"><div class="stamina-title">DASH <span id="stamina-label">100%</span></div><div class="stamina-track"><div id="stamina-fill"></div></div></div>
+    </div>
+    <div id="controls" class="controls" hidden>
+      <div id="stick" class="stick" aria-label="移動用スティック" role="group">
+        <div class="stick-ring"></div><div id="knob" class="stick-knob"></div>
+        <div class="stick-label">MOVE</div>
+      </div>
+      <div class="right-control"><button id="dash" class="dash" type="button" aria-label="ダッシュする"> <span class="dash-arrows">»</span><span>DASH</span></button><span class="keyboard-hint">SHIFT / SPACE</span></div>
+    </div>
+    <button id="skill-hit" type="button" hidden aria-label="タイミングよくタップしてスキルチェックを止める"><span>タイミングよくタップ！<small>PC：SPACE / クリック</small></span></button>
+    <section id="title-screen" class="screen title-screen" aria-labelledby="game-title">
+      <div class="title-card">
+        <div class="episode">ONE TAKE GAME <b>#009</b></div>
+        <div class="title-characters" aria-hidden="true"><span>🐭</span><span class="cheese-emoji">🧀</span><span>🐈</span></div>
+        <h1 id="game-title">キャットバイ<br>にゃーライト</h1>
+        <div class="subtitle">CatByNyaLight</div>
+        <p class="tagline">猫に見つからず、チーズを3個食べろ！<br>食べたら巣へ逃げ込め！</p>
+        <div class="howto"><div><b>◉</b> 左スティック：移動</div><div><b>»</b> 右ボタン：ダッシュ</div><div><b>◆</b> チーズのそばで止まって食べる</div><div><b>◎</b> 円の針に合わせてタップ</div></div>
+        <p class="pc-hint">PC：WASD / 矢印で移動、SHIFT / SPACEでダッシュ<br>クリック移動にも対応</p>
+        <button id="start" class="primary" type="button">START <span>➜</span></button>
+      </div>
+    </section>
+    <section id="result-screen" class="screen result-screen" hidden aria-live="assertive">
+      <div class="result-card"><div id="result-icon" class="result-icon" aria-hidden="true">🐭</div><h2 id="result-title">GAME OVER</h2><p id="result-detail"></p><p id="result-time"></p><button id="retry" class="primary" type="button">もう一度 ↻</button></div>
+    </section>
+  </main>
+</body>
+</html>
